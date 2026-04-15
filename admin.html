@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin - Rental Mobil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="./style.css" rel="stylesheet" />
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="navbar text-white sticky top-0 z-50 shadow-lg" style="background-color: #021A54;">
+        <div class="navbar-start">
+            <a href="index.html" class="btn btn-ghost text-xl gap-2 hover:bg-white/10">
+                <span class="text-2xl">🚗</span>
+                <span class="font-bold">Rental Mobil Admin</span>
+            </a>
+        </div>
+        <div class="navbar-end space-x-2">
+            <a href="comments.html" class="btn btn-ghost text-white hover:bg-white/10">Add Comment</a>
+            <a href="index.html" class="btn btn-ghost text-white hover:bg-white/10">Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="py-12 px-4" style="background-color: #f5f7fa;">
+        <div class="max-w-6xl mx-auto">
+            <!-- Cars Management Section -->
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <div class="flex justify-between items-center mb-6">
+                    <h2 class="text-3xl font-bold" style="color: #021A54;">Cars Management</h2>
+                    <button onclick="openAddCarModal()" class="btn text-white font-bold transition hover:shadow-lg" style="background-color: #021A54;">+ Add Car</button>
+                </div>
+
+                <!-- Cars Table -->
+                <div class="overflow-x-auto">
+                    <table class="table table-zebra w-full">
+                        <thead style="background-color: #021A54; color: white;">
+                            <tr>
+                                <th>Car Name</th>
+                                <th>Type</th>
+                                <th>Capacity</th>
+                                <th>Price/Day</th>
+                                <th>Features</th>
+                                <th>Actions</th>
+                            </tr>
+                        </thead>
+                        <tbody id="carsTableBody">
+                            <!-- Cars will be displayed here -->
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Add Car Modal -->
+    <dialog id="addCarModal" class="modal">
+        <div class="modal-box w-11/12 max-w-2xl">
+            <h3 class="font-bold text-2xl mb-4" style="color: #021A54;">Add New Car</h3>
+            <form id="addCarForm" class="space-y-4">
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text font-semibold">Car Name</span>
+                        </label>
+                        <input type="text" id="carName" placeholder="Enter car name" class="input input-bordered" required>
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text font-semibold">Car Type</span>
+                        </label>
+                        <select id="carType" class="select select-bordered" required>
+                            <option value="">Select car type</option>
+                            <option value="economy">Economy</option>
+                            <option value="compact">Compact</option>
+                            <option value="sedan">Sedan</option>
+                            <option value="mpv">MPV</option>
+                            <option value="suv">SUV</option>
+                            <option value="hatchback">Hatchback</option>
+                            <option value="luxury">Luxury</option>
+                        </select>
+                    </div>
+                </div>
+
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text font-semibold">Capacity (Passengers)</span>
+                        </label>
+                        <input type="number" id="carCapacity" placeholder="Enter number of passengers" class="input input-bordered" min="1" max="10" required>
+                    </div>
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text font-semibold">Price per Day (Rp)</span>
+                        </label>
+                        <input type="number" id="carPrice" placeholder="Enter daily price" class="input input-bordered" min="0" step="0.01" required>
+                    </div>
+                </div>
+
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text font-semibold">Image URL</span>
+                    </label>
+                    <input type="text" id="carImage" placeholder="Enter image file path (e.g., ./Toyota Corolla.jpg)" class="input input-bordered" required>
+                </div>
+
+                <div class="form-control">
+                    <label class="label">
+                        <span class="label-text font-semibold">Features (comma-separated)</span>
+                    </label>
+                    <textarea id="carFeatures" placeholder="e.g., Air Conditioning, Automatic Transmission, Power Steering" class="textarea textarea-bordered" rows="3" required></textarea>
+                </div>
+
+                <div class="modal-action">
+                    <button type="button" onclick="closeAddCarModal()" class="btn">Cancel</button>
+                    <button type="submit" class="btn text-white font-bold" style="background-color: #021A54;">Add Car</button>
+                </div>
+            </form>
+        </div>
+        <form method="dialog" class="modal-backdrop">
+            <button>close</button>
+        </form>
+    </dialog>
+
+    <script src="./admin-script.js"></script>
+</body>
+</html>

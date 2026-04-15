@@ -1,0 +1,74 @@
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap');
+
+:root {
+    --primary-color: #021A54;
+    --secondary-color: #ffffff;
+    --light-bg: #f5f7fa;
+    --text-dark: #021A54;
+    --text-light: #ffffff;
+}
+
+* {
+    font-family: 'Inter', sans-serif;
+}
+
+html {
+    scroll-behavior: smooth;
+}
+
+body {
+    background-color: var(--secondary-color);
+    color: var(--text-dark);
+}
+
+/* Modern gradient backgrounds */
+.bg-primary-gradient {
+    background: linear-gradient(135deg, #021A54 0%, #0a2d7a 100%);
+}
+
+.text-primary {
+    color: var(--primary-color);
+}
+
+.text-white {
+    color: var(--text-light);
+}
+
+/* Button styles */
+.btn-primary-modern {
+    background-color: var(--primary-color);
+    color: var(--text-light);
+    border: none;
+    transition: all 0.3s ease;
+}
+
+.btn-primary-modern:hover {
+    background-color: #0a2d7a;
+    transform: translateY(-2px);
+    box-shadow: 0 8px 20px rgba(2, 26, 84, 0.3);
+}
+
+/* Card styles */
+.card-modern {
+    border: 1px solid #e0e0e0;
+    transition: all 0.3s ease;
+}
+
+.card-modern:hover {
+    box-shadow: 0 10px 30px rgba(2, 26, 84, 0.1);
+    border-color: var(--primary-color);
+}
+
+/* Section backgrounds */
+.section-light {
+    background-color: var(--light-bg);
+}
+
+.section-dark {
+    background-color: var(--primary-color);
+}
+
+/* Smooth transitions */
+a, button {
+    transition: all 0.3s ease;
+}
