@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Add Comment - Rental Mobil</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@4.11.1/dist/full.min.css" rel="stylesheet" type="text/css" />
+    <link href="./style.css" rel="stylesheet" />
+</head>
+<body class="bg-white">
+    <!-- Header -->
+    <header class="navbar text-white sticky top-0 z-50 shadow-lg" style="background-color: #021A54;">
+        <div class="navbar-start">
+            <a href="index.html" class="btn btn-ghost text-xl gap-2 hover:bg-white/10">
+                <span class="text-2xl">💬</span>
+                <span class="font-bold">Leave a Review</span>
+            </a>
+        </div>
+        <div class="navbar-end">
+            <a href="index.html" class="btn btn-ghost text-white hover:bg-white/10">Back to Home</a>
+        </div>
+    </header>
+
+    <!-- Main Content -->
+    <section class="py-12 px-4" style="background-color: #f5f7fa;">
+        <div class="max-w-2xl mx-auto">
+            <!-- Add Comment Form -->
+            <div class="bg-white rounded-lg shadow-lg p-8">
+                <h2 class="text-3xl font-bold mb-2" style="color: #021A54;">Share Your Experience</h2>
+                <p class="text-gray-600 mb-8">Tell us about your rental experience with Rental Mobil</p>
+
+                <form id="addCommentForm" class="space-y-6">
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text font-semibold">Your Name</span>
+                        </label>
+                        <input type="text" id="commentName" placeholder="Enter your name" class="input input-bordered" required>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text font-semibold">Email</span>
+                        </label>
+                        <input type="email" id="commentEmail" placeholder="Enter your email" class="input input-bordered" required>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text font-semibold">Rating</span>
+                        </label>
+                        <div class="flex gap-2">
+                            <input type="radio" id="rating1" name="rating" value="1" class="radio"> <label for="rating1" class="cursor-pointer">⭐</label>
+                            <input type="radio" id="rating2" name="rating" value="2" class="radio"> <label for="rating2" class="cursor-pointer">⭐⭐</label>
+                            <input type="radio" id="rating3" name="rating" value="3" class="radio"> <label for="rating3" class="cursor-pointer">⭐⭐⭐</label>
+                            <input type="radio" id="rating4" name="rating" value="4" class="radio"> <label for="rating4" class="cursor-pointer">⭐⭐⭐⭐</label>
+                            <input type="radio" id="rating5" name="rating" value="5" class="radio" required> <label for="rating5" class="cursor-pointer">⭐⭐⭐⭐⭐</label>
+                        </div>
+                    </div>
+
+                    <div class="form-control">
+                        <label class="label">
+                            <span class="label-text font-semibold">Your Comment</span>
+                        </label>
+                        <textarea id="commentText" placeholder="Share your experience..." class="textarea textarea-bordered" rows="6" required></textarea>
+                    </div>
+
+                    <button type="submit" class="btn text-white font-bold w-full py-3 text-lg transition hover:shadow-lg" style="background-color: #021A54;">Submit Review</button>
+                </form>
+            </div>
+
+            <!-- Comments Display -->
+            <div class="mt-12">
+                <h3 class="text-2xl font-bold mb-6" style="color: #021A54;">Recent Reviews</h3>
+                <div id="commentsList" class="space-y-4">
+                    <!-- Comments will be displayed here -->
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <script src="./comments-script.js"></script>
+</body>
+</html>
